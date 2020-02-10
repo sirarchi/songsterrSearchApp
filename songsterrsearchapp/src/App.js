@@ -12,14 +12,16 @@ class App extends Component {
     this.setState({
       tablatureData: data
     })
-    console.log('Main state')
   }
 
   render() {
     return (
       <div className="App">
         <SearchBox insertTablatureToMainState={this.insertTablatureToMainState} />
-        <ScoreBoard />
+        {this.state.tablatureData.length ? 
+          (<ScoreBoard tablatureData={this.state.tablatureData} />) : 
+          (<ScoreBoard />) 
+        }
       </div>
     );
   }
