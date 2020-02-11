@@ -22,9 +22,12 @@ class ScoreBoard extends Component {
                 tabTypes: e.target.value.toUpperCase()
             })   
         }
-  
-        console.log(this.filteredTabs);
-        
+    }
+
+    clearState = () => {
+        this.setState({
+            tablatureData: [],
+        })
     }
 
     render () {
@@ -33,9 +36,9 @@ class ScoreBoard extends Component {
         });
         return (
             <div className="container-md p-0">
-                <div className="row">
+                <div className="row styles.table-wrapper-scroll-y my-custom-scrollbar">
                     <table className="table table-striped">
-                        <thead>
+                        <thead className="thead-light">
                             <tr className="">
                                 <th className="align-middle" scope="col">ID</th>
                                 <th className="align-middle" scope="col">Artist Name</th>
@@ -54,21 +57,19 @@ class ScoreBoard extends Component {
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
-                            { 
-                                this.props.tablatureData !== undefined ? 
-                                filteredTabs.map(item => {
-                                    return <Record key={item.id} tablatureData={item} />
-                                }) : 
-                                <tr>
-                                    <th>Nothing to show!</th>
-                                </tr>
-                            }
-                        </tbody>
+                            <tbody>
+                                { 
+                                    this.props.tablatureData !== undefined ? 
+                                    filteredTabs.map(item => {
+                                        return <Record key={item.id} tablatureData={item} />
+                                    }) : 
+                                    null
+                                }
+                            </tbody>
                     </table>
                 </div>
                 <div className="row justify-content-end">
-                    <ClearButton />
+                    <ClearButton clearState={this.clearState}/>
                 </div>
             </div>
         )
