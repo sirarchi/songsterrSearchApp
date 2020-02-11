@@ -1,0 +1,14 @@
+tbody {
+    max-height: 500px;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: block;
+}
+
+thead, tbody tr {
+    overflow: hidden;
+    overflow-wrap: break-word;
+    display: table;
+    width: 100%;
+    table-layout: fixed;/* even columns width , fix width of table too*/
+}
