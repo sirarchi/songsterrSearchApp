@@ -1,9 +1,10 @@
 import React from 'react'
 import Record from '../Record/Record'
+import styles from './ScoreBoard.css'
 
 const ScoreBoardTable = ({filterTabs, tablatureData, filteredTabs}) => {
     return (
-        <div className="row styles.table-wrapper-scroll-y my-custom-scrollbar">
+        <div className="row">
                     <table className="table table-striped">
                         <thead className="thead-light">
                             <tr className="">
