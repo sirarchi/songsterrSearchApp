@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ClearButton from '../BoardTools/ClearButton'
-import Record from '../Record/Record'
+import ScoreBoardTable from './ScoreBoardTable'
 
 class ScoreBoard extends Component {
     state = {
@@ -36,38 +36,11 @@ class ScoreBoard extends Component {
         });
         return (
             <div className="container-md p-0">
-                <div className="row styles.table-wrapper-scroll-y my-custom-scrollbar">
-                    <table className="table table-striped">
-                        <thead className="thead-light">
-                            <tr className="">
-                                <th className="align-middle" scope="col">ID</th>
-                                <th className="align-middle" scope="col">Artist Name</th>
-                                <th className="align-middle" scope="col">Title</th>
-                                <th className="align-middle" scope="col">Type</th>
-                                <th className="align-middle" scope="col">
-                                    <p className="text-center">TabType</p>
-                                    <div className="form-group mb-0">
-                                        <select onChange={this.filterTabs} className="form-control" id="exampleFormControlSelect1">
-                                            <option vale="player">player</option>
-                                            <option value="text_guitar_tab">guitar</option>
-                                            <option value="text_bass_tab">bass</option>
-                                            <option value="chords">chords</option>
-                                        </select>
-                                    </div>
-                                </th>
-                            </tr>
-                        </thead>
-                            <tbody>
-                                { 
-                                    this.props.tablatureData !== undefined ? 
-                                    filteredTabs.map(item => {
-                                        return <Record key={item.id} tablatureData={item} />
-                                    }) : 
-                                    null
-                                }
-                            </tbody>
-                    </table>
-                </div>
+                <ScoreBoardTable 
+                    filterTabs={this.filterTabs} 
+                    tablatureData={this.props.tablatureData} 
+                    filteredTabs={filteredTabs} 
+                />
                 <div className="row justify-content-end">
                     <ClearButton clearState={this.clearState}/>
                 </div>
