@@ -3,6 +3,7 @@ import './App.css';
 import SearchBox from './Components/SearchBox/SearchBox';
 import ScoreBoard from './Components/ScoreBoard/ScoreBoard';
 import Title from './Components/Title/Title';
+import Footer from './Components/Footer/Footer'
 
 class App extends Component {
   state = {
@@ -24,6 +25,7 @@ class App extends Component {
           (<ScoreBoard tablatureData={this.state.tablatureData} />) : 
           (<ScoreBoard />) 
         }
+        <Footer />
       </div>
     );
   }
