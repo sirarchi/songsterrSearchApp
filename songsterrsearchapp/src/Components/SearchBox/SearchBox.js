@@ -13,11 +13,12 @@ class SearchBox extends Component {
                     this.setState({
                     results: res.data
                 })
+                this.props.insertTablatureToMainState(this.state.results)
             })
             .catch(err => {
                     console.log(err);
                 })
-        this.props.insertTablatureToMainState(this.state.results)
+ 
     }
     
     handleChange = event => {
