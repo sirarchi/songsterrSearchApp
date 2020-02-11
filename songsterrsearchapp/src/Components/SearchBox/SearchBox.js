@@ -10,7 +10,7 @@ class SearchBox extends Component {
 
     tablatureDownload = () => {
         if(this.state.searchInput.length) {
-            axios.get('http://www.songsterr.com/a/ra/songs.json?pattern=' + this.state.searchInput)
+            axios.get('https://www.songsterr.com/a/ra/songs.json?pattern=' + this.state.searchInput)
                 .then(res => {
                         this.setState({
                         results: res.data
