@@ -21,7 +21,6 @@ class App extends Component {
         {this.state.tablatureData.length ? 
           (<ScoreBoard tablatureData={this.state.tablatureData} />) : 
           (<ScoreBoard />) 
-          <p>Test</p>
         }
       </div>
     );
