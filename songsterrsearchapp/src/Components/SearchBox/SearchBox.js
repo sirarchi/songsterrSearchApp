@@ -9,17 +9,18 @@ class SearchBox extends Component {
     }
 
     tablatureDownload = () => {
-        axios.get('http://www.songsterr.com/a/ra/songs.json?pattern=' + this.state.searchInput)
-            .then(res => {
-                    this.setState({
-                    results: res.data
+        if(this.state.searchInput.length) {
+            axios.get('http://www.songsterr.com/a/ra/songs.json?pattern=' + this.state.searchInput)
+                .then(res => {
+                        this.setState({
+                        results: res.data
+                    })
+                    this.props.insertTablatureToMainState(this.state.results)
                 })
-                this.props.insertTablatureToMainState(this.state.results)
-            })
-            .catch(err => {
-                    console.log(err);
-                })
- 
+                .catch(err => {
+                        console.log(err);
+                    })
+        }
     }
     
     handleChange = event => {

@@ -30,10 +30,22 @@ class ScoreBoard extends Component {
         })
     }
 
+    // filtereddTabs = (e) => {
+    //     console.log('cos')
+    //     if (e.length) {
+    //         console.log('cos2')
+    //         return e.filter((item) => {
+    //             return item.tabTypes.indexOf(this.state.tabTypes) !== -1
+    //         });   
+    //     }
+    // }
+
     render () {
         let filteredTabs = this.state.tablatureData.filter((item) => {
             return item.tabTypes.indexOf(this.state.tabTypes) !== -1
-        });
+        });   
+
+
         return (
             <div className="container-md p-0">
                 <ScoreBoardTable 
