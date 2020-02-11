@@ -5,6 +5,7 @@ class SearchBox extends Component {
     state = {
         results: [],
         searchInput: '',
+        placeholder: 'Insert artist name or title...',
     }
 
     tablatureDownload = () => {
@@ -29,7 +30,7 @@ class SearchBox extends Component {
 
     handleKeyDown = event => {
         if (event.key === 'Enter') {
-            this.tablatureDownload()
+            this.tablatureDownload();
             }
     }
 
@@ -42,7 +43,7 @@ class SearchBox extends Component {
                                     onChange={this.handleChange}
                                     onKeyDown={this.handleKeyDown}
                                     type="text" 
-                                    placeholder="Insert artist name or title..." 
+                                    placeholder={this.state.placeholder} 
                             />
                             <div className="input-group-append">
                                 <button 

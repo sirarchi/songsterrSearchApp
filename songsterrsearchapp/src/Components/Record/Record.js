@@ -1,26 +1,25 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 
 const Record = ({tablatureData, tabTypeFilter}) => {
 
-    // const tabTypes = tablatureData.tabTypes.map((item) => {
-    //     return (item.split(' ').toLowerCase());
-    // })
-
     const tabTypes = tablatureData.tabTypes.toString().toLowerCase();
 
-    // let tabTypePlayer = tablatureData.tabTypes.filter((item) => {
-    //     return item === "Player"
-    // })
 
+    const moveToOriginalWebsite = (url) => {
+        document.location = encodeURI(url)
+    }
+
+    const tabLink = 'https://www.songsterr.com/?pattern=' + tablatureData.title;
 
     return (
-            <tr>
-                <th scope="row">{tablatureData.id}</th>
-                    <td>{tablatureData.artist.name.slice(0, 15)}</td>
-                    <td>{tablatureData.title.slice(0, 25)}</td>
-                    <td>{tablatureData.type}</td>
-                    <td>{tabTypes}</td>
-            </tr>
+                <tr onClick={() => moveToOriginalWebsite(tabLink)}>
+                        <th scope="row">{tablatureData.id}</th>
+                        <td>{tablatureData.artist.name.slice(0, 15)}</td>
+                        <td>{tablatureData.title.slice(0, 25)}</td>
+                        <td>{tablatureData.type}</td>
+                        <td>{tabTypes}</td>
+                </tr>
 
     )
 }
